@@ -1,0 +1,76 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}
+\usepackage[american]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[hidelinks]{hyperref}
+\usepackage{tabularx}
+\usepackage{ltablex}
+\keepXColumns
+
+\begin{document}
+\section*{Symbols}
+
+
+\subsection*{Sets}
+\begin{tabularx}{\textwidth}{| l | l | X |}
+\hline
+\textbf{Name} & \textbf{Domains} & \textbf{Description}\\
+\hline
+\endhead
+
+factories & * & \\
+clients & * & \\
+\hline
+\end{tabularx}
+\subsection*{Parameters}
+\begin{tabularx}{\textwidth}{| l | l | X |}
+\hline
+\textbf{Name} & \textbf{Domains} & \textbf{Description}\\
+\hline
+\endhead
+
+offer & factories & \\
+demand & clients & \\
+cost & factories,clients & \\
+\hline
+\end{tabularx}
+\subsection*{Variables}
+\begin{tabularx}{\textwidth}{| l | l | X |}
+\hline
+\textbf{Name} & \textbf{Domains} & \textbf{Description}\\
+\hline
+\endhead
+
+x & factories,clients & \\
+\hline
+\end{tabularx}
+\subsection*{Equations}
+\begin{tabularx}{\textwidth}{| l | l | X |}
+\hline
+\textbf{Name} & \textbf{Domains} & \textbf{Description}\\
+\hline
+\endhead
+
+supply\_equation & factories & \\
+demand\_equation & clients & \\
+\hline
+\end{tabularx}
+\subsection*{Model Definition}
+\textbf{min} $\sum_{factories,clients} cost_{factories,clients} \cdot x_{factories,clients}$\\
+\textbf{s.t.}
+\subsubsection*{$supply\_equation_{factories}$}
+$
+\sum_{clients} x_{factories,clients} \leq offer_{factories}\hfill \forall factories
+$
+\vspace{5pt}
+\hrule
+\subsubsection*{$demand\_equation_{clients}$}
+$
+\sum_{factories} x_{factories,clients} \geq demand_{clients}\hfill \forall clients
+$
+\vspace{5pt}
+\hrule
+\bigskip
+$x_{factories,clients}\geq 0 ~ \forall factories,clients\\$
+\end{document}
