@@ -1,10 +1,11 @@
---- Job new1.gms Start 04/06/25 20:48:33 49.3.0 7de46a92 WEX-WEI x86 64bit/MS Windows
+
+--- Job new1.gms Start 04/06/25 22:45:02 49.3.0 7de46a92 WEX-WEI x86 64bit/MS Windows
 --- Applying:
     C:\GAMS\49\gmsprmNT.txt
 --- GAMS Parameters defined
-    Input C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\new1.gms
+    Input C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\new1\new1.gms
     PageSize 0
-    ScrDir C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\225a\
+    ScrDir C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\new1\225a\
     SysDir C:\GAMS\49\
     LogOption 3
     ErrMsg 1
@@ -21,23 +22,23 @@ GAMS 49.3.0   Copyright (C) 1987-2025 GAMS Development. All rights reserved
 --- new1.gms(17) 2 Mb
 --- Starting execution: elapsed 0:00:00.003
 --- new1.gms(16) 3 Mb
---- Generating LP model MUEBLES
+--- Generating LP model EJERCICIO
 --- new1.gms(17) 3 Mb
----   4 rows  5 columns  17 non-zeroes
+---   4 rows  4 columns  13 non-zeroes
 --- Range statistics (absolute non-zero finite values)
---- RHS       [min, max] : [ 8.000E+01, 2.000E+02] - Zero values observed as well
+--- RHS       [min, max] : [ 1.500E+02, 2.400E+02] - Zero values observed as well
 --- Bound     [min, max] : [        NA,        NA] - Zero values observed as well
---- Matrix    [min, max] : [ 1.000E+00, 2.000E+04]
---- Executing CPLEX (Solvelink=2): elapsed 0:00:00.008
+--- Matrix    [min, max] : [ 1.000E+00, 6.000E+02]
+--- Executing CPLEX (Solvelink=2): elapsed 0:00:00.025
 
 IBM ILOG CPLEX   49.3.0 7de46a92 Mar 18, 2025          WEI x86 64bit/MS Window
 
 *** This solver runs with a demo license. No commercial use.
 
-Reading parameter(s) from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\cplex.opt"
+Reading parameter(s) from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\new1\cplex.opt"
 >>  objrng all 
 >>  rhsrng all
-Finished reading from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\cplex.opt"
+Finished reading from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\new1\cplex.opt"
 
 --- GMO setup time: 0.00s
 --- GMO memory 0.50 Mb (peak 0.50 Mb)
@@ -52,13 +53,13 @@ CPXPARAM_MIP_Display                             4
 CPXPARAM_MIP_Pool_Capacity                       0
 CPXPARAM_MIP_Tolerances_AbsMIPGap                0
 Tried aggregator 1 time.
-LP Presolve eliminated 0 rows and 1 columns.
-Reduced LP has 3 rows, 4 columns, and 12 nonzeros.
+LP Presolve eliminated 1 rows and 2 columns.
+Reduced LP has 2 rows, 2 columns, and 4 nonzeros.
 Presolve time = 0.00 sec. (0.00 ticks)
 
 Iteration      Dual Objective            In Variable           Out Variable
-     1  I            0.000000                      C               B1 slack
-     2          480000.000000                      D               B3 slack
+     1  I            0.000000                     X3               B2 slack
+     2           35400.000000                     X1               B3 slack
 
 --- LP status (1): optimal.
 --- Cplex Time: 0.00sec (det. 0.01 ticks)
@@ -69,24 +70,23 @@ Iteration      Dual Objective            In Variable           Out Variable
 EQUATION NAME                            LOWER           CURRENT             UPPER
 -------------                            -----           -------             -----
 OBJ                                       -INF                NA              +INF   
-B1                                         160               200               240   
-B2                                         120               144              +INF   
-B3                                     66.6667                80                96   
+B1                                          87               240              +INF   
+B2                                          90               150           368.571   
+B3                                          50               180               300   
 
 --- Objective ranging...
 
 VARIABLE NAME                            LOWER           CURRENT             UPPER
 -------------                            -----           -------             -----
 F                                         -INF                NA              +INF   
-C                                      18666.7             20000             28000   
-D                                        10000             14000             15000   
-L                                         -INF              8000             10000   
-M                                         -INF              4000              6000   
+X1                                         150               500               900   
+X2                                        -INF               250               300   
+X3                                         500               600              2000   
 
 
 Optimal solution found
-Objective:       480000.000000
+Objective:        35400.000000
 
---- Reading solution for model MUEBLES
+--- Reading solution for model EJERCICIO
 *** Status: Normal completion
---- Job new1.gms Stop 04/06/25 20:48:33 elapsed 0:00:00.107
+--- Job new1.gms Stop 04/06/25 22:45:02 elapsed 0:00:00.161
