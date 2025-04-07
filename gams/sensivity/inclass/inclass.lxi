@@ -1,0 +1,20 @@
+B 3 C o m p i l a t i o n
+B 27 Equation Listing    SOLVE EJERCICIO Using LP From line 16
+D 30 OBJ
+D 35 B1
+D 40 B2
+B 46 Column Listing      SOLVE EJERCICIO Using LP From line 16
+E 49 F
+E 56 X1
+E 65 X2
+E 74 X3
+B 83 Range Statistics    SOLVE EJERCICIO Using LP From line 16
+B 94 Model Statistics    SOLVE EJERCICIO Using LP From line 16
+B 107 Solution Report     SOLVE EJERCICIO Using LP From line 16
+F 164 OBJ
+F 165 B1
+F 166 B2
+G 170 F
+G 171 X1
+G 172 X2
+G 173 X3

@@ -1,0 +1,215 @@
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:48:33 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * PROBLEMA DE PROGRAMACION LINEAL
+   2  * ANALISIS DE SENSIBILIDAD
+   3  VARIABLES
+   4  F;
+   5  POSITIVE VARIABLES
+   6  C, D, L, M;
+   7  EQUATIONS
+   8  OBJ, B1, B2, B3;
+   9  OBJ.. F =E= 20000*C + 14000*D + 8000*L + 4000*M;
+  10  B1.. 8*C + 6*D + 4*L + 2*M =L= 200;
+  11  B2.. 6*C + 3*D + 2*L + M =L= 144;
+  12  B3.. 4*C + 2*D + 2*L + 2*M =L= 80;
+  13  MODEL MUEBLES /ALL/;
+  14  OPTION LP = CPLEX;
+  15  MUEBLES.DICTFILE = 4;
+  16  MUEBLES.OPTFILE =1;
+  17  SOLVE MUEBLES USING LP MAXIMIZING F;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  49.3.0 7de46a92 WEX-WEI
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:48:33 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE MUEBLES Using LP From line 17
+
+
+---- OBJ  =E=  
+
+OBJ..  F - 20000*C - 14000*D - 8000*L - 4000*M =E= 0 ; (LHS = 0)
+     
+
+---- B1  =L=  
+
+B1..  8*C + 6*D + 4*L + 2*M =L= 200 ; (LHS = 0)
+     
+
+---- B2  =L=  
+
+B2..  6*C + 3*D + 2*L + M =L= 144 ; (LHS = 0)
+     
+
+---- B3  =L=  
+
+B3..  4*C + 2*D + 2*L + 2*M =L= 80 ; (LHS = 0)
+     
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:48:33 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE MUEBLES Using LP From line 17
+
+
+---- F  
+
+F
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       OBJ
+
+
+---- C  
+
+C
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+   -20000       OBJ
+        8       B1
+        6       B2
+        4       B3
+
+
+---- D  
+
+D
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+   -14000       OBJ
+        6       B1
+        3       B2
+        2       B3
+
+
+---- L  
+
+L
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+    -8000       OBJ
+        4       B1
+        2       B2
+        2       B3
+
+
+---- M  
+
+M
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+    -4000       OBJ
+        2       B1
+        1       B2
+        2       B3
+
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:48:33 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE MUEBLES Using LP From line 17
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 8.000E+01, 2.000E+02] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 2.000E+04]
+
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:48:33 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE MUEBLES Using LP From line 17
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           4     SINGLE EQUATIONS            4
+BLOCKS OF VARIABLES           5     SINGLE VARIABLES            5
+NON ZERO ELEMENTS            17
+
+
+GENERATION TIME      =        0.004 SECONDS      3 MB  49.3.0 7de46a92 WEX-WEI
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:48:33 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE MUEBLES Using LP From line 17
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   MUEBLES             OBJECTIVE  F
+     TYPE    LP                  DIRECTION  MAXIMIZE
+     SOLVER  CPLEX               FROM LINE  17
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE           480000.0000
+
+ RESOURCE USAGE, LIMIT          0.003 10000000000.000
+ ITERATION COUNT, LIMIT         2    2147483647
+*** This solver runs with a demo license. No commercial use.
+
+Reading parameter(s) from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\cplex.opt"
+>>  objrng all 
+>>  rhsrng all
+Finished reading from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.01 ticks)
+
+--- Start ranging / sensitivity analysis...
+--- Right-hand-side ranging...
+
+EQUATION NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+OBJ                                       -INF                NA              +INF   =C
+B1                                         160               200               240   =C
+B2                                         120               144              +INF   =C
+B3                                     66.6667                80                96   =C
+
+--- Objective ranging...
+
+VARIABLE NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+F                                         -INF                NA              +INF   =C
+C                                      18666.7             20000             28000   =C
+D                                        10000             14000             15000   =C
+L                                         -INF              8000             10000   =C
+M                                         -INF              4000              6000   =C
+
+
+Optimal solution found
+Objective:       480000.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .             1.0000      
+---- EQU B1                -INF          200.0000       200.0000      2000.0000      
+---- EQU B2                -INF          120.0000       144.0000          .          
+---- EQU B3                -INF           80.0000        80.0000      1000.0000      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR F                 -INF       480000.0000        +INF             .          
+---- VAR C                   .            10.0000        +INF             .          
+---- VAR D                   .            20.0000        +INF             .          
+---- VAR L                   .              .            +INF        -2000.0000      
+---- VAR M                   .              .            +INF        -2000.0000      
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.104 SECONDS      3 MB  49.3.0 7de46a92 WEX-WEI
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G250131/0001CB-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\new1.gms
+Output     C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gms\sensivity\new1\new1.lst

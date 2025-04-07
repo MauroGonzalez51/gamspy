@@ -1,0 +1,191 @@
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:56:39 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1  * PROBLEMA DE PROGRAMACION LINEAL
+   2  * ANALISIS DE SENSIBILIDAD - EJERCICIO EN CLASE
+   3  VARIABLES
+   4  F;
+   5  POSITIVE VARIABLES
+   6  X1, X2, X3;
+   7  EQUATIONS
+   8  OBJ, B1, B2;
+   9  OBJ.. F =E= 3*X1 + 4*X2 + (3/2)*X3;
+  10  B1.. 1*X1 + 2*X2 =L= 10;
+  11  B2.. 2*X1 + 2*X2 + 1*X3 =L= 10;
+  12  MODEL EJERCICIO /ALL/;
+  13  OPTION LP = CPLEX;
+  14  EJERCICIO.DICTFILE = 4;
+  15  EJERCICIO.OPTFILE =1;
+  16  SOLVE EJERCICIO USING LP MAXIMIZING F;
+
+
+COMPILATION TIME     =        0.000 SECONDS      2 MB  49.3.0 7de46a92 WEX-WEI
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:56:39 Page 2
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Equation Listing    SOLVE EJERCICIO Using LP From line 16
+
+
+---- OBJ  =E=  
+
+OBJ..  F - 3*X1 - 4*X2 - 1.5*X3 =E= 0 ; (LHS = 0)
+     
+
+---- B1  =L=  
+
+B1..  X1 + 2*X2 =L= 10 ; (LHS = 0)
+     
+
+---- B2  =L=  
+
+B2..  2*X1 + 2*X2 + X3 =L= 10 ; (LHS = 0)
+     
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:56:39 Page 3
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Column Listing      SOLVE EJERCICIO Using LP From line 16
+
+
+---- F  
+
+F
+                (.LO, .L, .UP, .M = -INF, 0, +INF, 0)
+        1       OBJ
+
+
+---- X1  
+
+X1
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -3       OBJ
+        1       B1
+        2       B2
+
+
+---- X2  
+
+X2
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -4       OBJ
+        2       B1
+        2       B2
+
+
+---- X3  
+
+X3
+                (.LO, .L, .UP, .M = 0, 0, +INF, 0)
+       -1.5     OBJ
+        1       B2
+
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:56:39 Page 4
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Range Statistics    SOLVE EJERCICIO Using LP From line 16
+
+
+RANGE STATISTICS (ABSOLUTE NON-ZERO FINITE VALUES)
+
+RHS       [min, max] : [ 1.000E+01, 1.000E+01] - Zero values observed as well
+Bound     [min, max] : [        NA,        NA] - Zero values observed as well
+Matrix    [min, max] : [ 1.000E+00, 4.000E+00]
+
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:56:39 Page 5
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Model Statistics    SOLVE EJERCICIO Using LP From line 16
+
+
+MODEL STATISTICS
+
+BLOCKS OF EQUATIONS           3     SINGLE EQUATIONS            3
+BLOCKS OF VARIABLES           4     SINGLE VARIABLES            4
+NON ZERO ELEMENTS             9
+
+
+GENERATION TIME      =        0.005 SECONDS      3 MB  49.3.0 7de46a92 WEX-WEI
+GAMS 49.3.0  7de46a92 Mar 18, 2025          WEX-WEI x86 64bit/MS Windows - 04/06/25 20:56:39 Page 6
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+Solution Report     SOLVE EJERCICIO Using LP From line 16
+
+
+               S O L V E      S U M M A R Y
+
+     MODEL   EJERCICIO           OBJECTIVE  F
+     TYPE    LP                  DIRECTION  MAXIMIZE
+     SOLVER  CPLEX               FROM LINE  16
+
+**** SOLVER STATUS     1 Normal Completion
+**** MODEL STATUS      1 Optimal
+**** OBJECTIVE VALUE               20.0000
+
+ RESOURCE USAGE, LIMIT          0.001 10000000000.000
+ ITERATION COUNT, LIMIT         1    2147483647
+*** This solver runs with a demo license. No commercial use.
+
+Reading parameter(s) from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\inclass\cplex.opt"
+>>  objrng all 
+>>  rhsrng all
+Finished reading from "C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\inclass\cplex.opt"
+
+--- GMO setup time: 0.00s
+--- GMO memory 0.50 Mb (peak 0.50 Mb)
+--- Dictionary memory 0.00 Mb
+--- Cplex 22.1.2.0 link memory 0.00 Mb (peak 0.00 Mb)
+--- Starting Cplex
+
+
+--- LP status (1): optimal.
+--- Cplex Time: 0.00sec (det. 0.00 ticks)
+
+--- Start ranging / sensitivity analysis...
+--- Right-hand-side ranging...
+
+EQUATION NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+OBJ                                       -INF                NA              +INF   =C
+B1                                          10                10              +INF   =C
+B2                                           0                10                10   =C
+
+--- Objective ranging...
+
+VARIABLE NAME                            LOWER           CURRENT             UPPER
+-------------                            -----           -------             -----
+F                                         -INF                NA              +INF   =C
+X1                                        -INF                 3                 4   =C
+X2                                           3                 4              +INF   =C
+X3                                        -INF               1.5                 2   =C
+
+
+Optimal solution found
+Objective:           20.000000
+
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- EQU OBJ                 .              .              .             1.0000      
+---- EQU B1                -INF           10.0000        10.0000          .          
+---- EQU B2                -INF           10.0000        10.0000         2.0000      
+
+                           LOWER          LEVEL          UPPER         MARGINAL
+
+---- VAR F                 -INF           20.0000        +INF             .          
+---- VAR X1                  .              .            +INF           -1.0000      
+---- VAR X2                  .             5.0000        +INF             .          
+---- VAR X3                  .              .            +INF           -0.5000      
+
+
+**** REPORT SUMMARY :        0     NONOPT
+                             0 INFEASIBLE
+                             0  UNBOUNDED
+
+
+EXECUTION TIME       =        0.105 SECONDS      3 MB  49.3.0 7de46a92 WEX-WEI
+
+
+USER: GAMS Demo, for EULA and demo limitations see   G250131/0001CB-GEN
+      https://www.gams.com/latest/docs/UG%5FLicense.html         DC0000
+
+
+**** FILE SUMMARY
+
+Input      C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\inclass\inclass.gms
+Output     C:\users\juand\Documents\vscode\semestre7\SistemasYModelos\gamspy\gams\sensivity\inclass\inclass.lst

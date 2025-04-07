@@ -1,0 +1,24 @@
+B 3 C o m p i l a t i o n
+B 28 Equation Listing    SOLVE MUEBLES Using LP From line 17
+D 31 OBJ
+D 36 B1
+D 41 B2
+D 46 B3
+B 52 Column Listing      SOLVE MUEBLES Using LP From line 17
+E 55 F
+E 62 C
+E 72 D
+E 82 L
+E 92 M
+B 103 Range Statistics    SOLVE MUEBLES Using LP From line 17
+B 114 Model Statistics    SOLVE MUEBLES Using LP From line 17
+B 127 Solution Report     SOLVE MUEBLES Using LP From line 17
+F 186 OBJ
+F 187 B1
+F 188 B2
+F 189 B3
+G 193 F
+G 194 C
+G 195 D
+G 196 L
+G 197 M
